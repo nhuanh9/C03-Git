@@ -17,12 +17,12 @@ export class BlogService implements Service<Blog>{
     findAll() {
     }
 
-    findById(id) {
-
+    findById = async(id)=> {
+        return await this.Repository.find(id)
     }
 
-    update(id, data) {
-
+    update = async (id, data) => {
+        return await this.Repository.update(id, data)
     }
 
 }
