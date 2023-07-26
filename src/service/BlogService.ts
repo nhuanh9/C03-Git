@@ -1,10 +1,16 @@
 import {Service} from "./Service";
 import {Blog} from "../entity/Blog";
+import { AppDataSource } from "../data-source";
 
-class BlogService implements Service<Blog>{
-    add(data) {
+export class BlogService implements Service<Blog>{
+    private Repository;
+    constructor() {
+        this.Repository = AppDataSource.getRepository(Blog);
     }
-
+    add = async (blog) => {
+        await this.Repository.save(blog)
+     }
+        
     delete(id) {
     }
 
@@ -12,9 +18,12 @@ class BlogService implements Service<Blog>{
     }
 
     findById(id) {
+
     }
 
     update(id, data) {
+
     }
 
 }
+export default new BlogService
