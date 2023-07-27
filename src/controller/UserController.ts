@@ -1,10 +1,14 @@
 import {Request, Response} from "express";
 import userService from "../service/UserService";
+import productService from "../service/ProductService";
 const session = require('express-session');
 
 class UserController {
 
-
+    findAll = async (req, res) => {
+        let list = await userService.findAll();
+        res.json(list)
+    }
     register = async (req: Request, res: Response) => {
         await userService.register(req.body);
         res.status(201).json('Create user success')

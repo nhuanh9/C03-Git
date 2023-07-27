@@ -1,4 +1,4 @@
-import {User} from "../entity/user";
+import {User} from "../entity/User";
 import {AppDataSource} from "../data-source";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -11,6 +11,9 @@ class UserService {
         this.userRepository = AppDataSource.getRepository(User);
     }
 
+    findAll = async () => {
+        return await this.userRepository.find();
+    }
 
     register = async (user) => {
         user.password = await bcrypt.hash(user.password, 10);
