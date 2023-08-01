@@ -1,6 +1,5 @@
 import {Request, Response} from "express";
 import userService from "../service/UserService";
-import productService from "../service/ProductService";
 const session = require('express-session');
 
 class UserController {
