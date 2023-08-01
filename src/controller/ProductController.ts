@@ -17,6 +17,10 @@ class ProductController {
         let data = await productService.delete(req.params.id);
         res.json(data)
     }
+    findById = async (req, res) => {
+        let data = await productService.findById(req.params.id);
+        res.json(data)
+    }
 }
 
 export default new ProductController();
